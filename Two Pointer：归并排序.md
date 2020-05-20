@@ -47,9 +47,9 @@ categories: 数据结构与算法
 // 将数组 A 的 [L1, R1] 和 [L2, R2]区间合并为有序区间，此处 L2 即为 R1+1
 public static void merge(int[] A, int L1, int R1, int L2, int R2){
     int i = 0, j = 0;	// i为A[L1]下标，j为A[L2下标
-    int[] temp = new int[(R1 - L1) + (R2 - L2)];	// temp存放临时合并的数数组
+    int[] temp = new int[(R1 - L1 + 1) + (R2 - L2 + 1)];	// temp存放临时合并的数数组
     int index = 0;	// temp的下标
-    while(i <= R1 && j < R2){
+    while(i <= R1 && j <= R2){
         if(A[i] <= A[j]){
             temp[index++] = A[i++];
         }else{
@@ -94,14 +94,14 @@ public static void mergeSort(int[] A, int[] left, int right){
 
 ```java
 public static void mergeSort(int A[]){
-    // step 为组内元素个数，step/2 为左子区间元素个数，注意等号可以不写（那就没必要存在①处的判断）
-    for(int step = 2; step / 2 <= n; step *= 2){
+    // step 为组内元素个数，step/2 为左子区间元素个数，注意等号可以不写
+    for(int step = 2; step / 2 < n; step *= 2){
         // 每 step 个元素一组，组内前 step/2 和后 step/2 个元素进行合并
-        for(int i=0; i<n; i+=step){	// 对每一组
-            int mid = i + step / 2;	
-            if(mid + 1 <= n){	// ①：判断右子区间是否有元素，有就合并
-                // 左子区间[i, mid], 右子区间为[mid+1,Math.min(i+step, n)] (这是为了防止超过步长)
-                merge(A, i, mid, mid+1, Math.min(i+step, n-1);
+        for(int i=0; i<A.length; i+=step){	// 对每一组
+            int mid = i - 1 + step/2;
+            if(mid < A.length - 1){	// 判断右子区间是否有元素，有就合并
+                // 左子区间[i, mid], 右子区间为[mid+1,Math.min(i+step-1, A.length-1)] (这是为了防止超过步长）
+                merge(A, i, mid, mid+1, Math.min(i+step-1, A.length-1);
             }
         }
     }
@@ -110,12 +110,12 @@ public static void mergeSort(int A[]){
 
 注意点：
 
-1. n 是元素个数，不是最后一个元素的下标，最后元素下标应为 n-1
-
-2. 当最外层循环为 step/2<n 时，就不会出现右子区间无元素的情况，所以①处的判断可以省略
-
 3. 合并时的 右子区间上限 需要判断是否会超过 n-1 （即最后一个元素的下标）
 
    例如：n 为 5，步长为 4 时
+
+3. 注意：这是从0开始的代码，所以 `mid 为 i - 1 + step/2` 而不是 `i + step/2`，举个例子，假设步长为2，那么左右的元素就都是1个。从0开始，那么第一次的第一个步长，左边的元素就是0下标，mid也应该是0，如果使用 `i + step/2`
+
+   
 
 当然，如果时间充足，merge() 处完全可以使用语言API自带的排序
