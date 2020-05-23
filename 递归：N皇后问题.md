@@ -7,7 +7,7 @@ img: https://img-blog.csdnimg.cn/20200208161411737.png?x-oss-process=image/water
 categories: 数据结构与算法
 ---
 
-了解N皇后问题之前，可以先了解[递归：全排列问题](https://blog.csdn.net/weixin_43553694/article/details/104223331)
+了解N皇后问题之前，可以先了解[递归：全排列问题](https://tonited.gitee.io/blog/2020/02/08/di-gui-quan-pai-lie-wen-ti/)
 
 ## N皇后问题
 在`N*N`的国际象棋盘上放置`N`个皇后，要求每个皇后的：同一行，同一列，对角线不会出现其他皇后，输出合法方案的个数
@@ -21,23 +21,28 @@ categories: 数据结构与算法
 	```java
 	if( Math.abs(i1 - i2) == Math.abs( line[i1] = line[i2] )
 	```
+
+
+
 ## 代码实现
+
 ### 暴力法
+
 ```java
 // N皇后问题
-static int N;
+private static int N;
 
 // 合法方案的个数，初始为0
-static int count = 0;
+private static int count = 0;
 
 // hashTable表示 第i列 上是否已经有皇后了
 // 0位空着不用，这样更方便理解
-static boolean[] hashTable = new boolean[N+1];
+private static boolean[] hashTable = new boolean[N+1];
 
 // 存放当前皇后的排列方案，表示第i列中的皇后放在了第Column[i]行
 // 其实就是全排列的一个方案
 // 从i=1开始，0位空着不用，这样更方便理解
-static int[] Column = new int[N+1];
+private static int[] Column = new int[N+1];
 
 // index表示当前处理的是第几列
 public static void generateColumn(int index) {
@@ -86,12 +91,22 @@ public static void generateColumn(int index) {
 }
 ```
 
+
+
+
+
 枚举所有情况，然后判断每一种情况是否合法的做法时非常朴素的，因此一般把不用优化算法，直接朴素算法解决的做法叫暴力法
 
+
+
 ### 回溯法 
+
 事实上，通过思考可以发现，如果某一种方案在第`i`列放置皇后时，已经出现了不合法的情况（有两个皇后对角线），剩下的列和皇后其实就没必要放了，所以我们没放一个皇后都判断一下是否合法，如果不合法，就不必处理当前皇后及其子问题了
 
 一般来说，如果达到递归边界前，由于某些原因已经不需继续递归，就可以直接返回上层，这种做法叫回溯法
+
+
+
 ```java
 // index表示当前处理的是第几列
 public static void generateColumn(int index) {
@@ -141,7 +156,3 @@ public static void generateColumn(int index) {
 	}
 }
 ```
-
-
-<hr/>
-参考：胡凡《算法笔记》
