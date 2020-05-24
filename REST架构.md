@@ -69,6 +69,9 @@ RESTful API对于资源路径提出以下观点：
 
 ## 请求方式
 REST认为，对于不同种类的操作，请求时要使用不同的请求方式
+
+
+
 | 请求方式 | 使用                           |
 | -------- | ------------------------------ |
 | GET      | 用于查询资源                   |
@@ -77,7 +80,10 @@ REST认为，对于不同种类的操作，请求时要使用不同的请求方�
 | PATCH    | 用于更新服务端的资源的部分信息 |
 | DELETE   | 用于删除服务端的资源。         |
 
+
+
 比如
+
 ```
 【GET】		/students/{student_id}		获取学生信息
 【GET】		/students					获取所有学生列表
@@ -98,19 +104,28 @@ REST认为，对于不同种类的操作，请求时要使用不同的请求方�
 	```
 	【GET】  /{version}/{resources}/{resource_id}?offset={field}&limit={filed}
 	```
+	
 - 排序方式`orderby`
 	- asc升序，desc降序，自己规定其他排序方式
+	
+	
+	
 	```
 	【GET】  /{version}/{resources}/{resource_id}[?orderby={filed}
 	```
+	
 - 返回查询总数`count`
 	```
 	【GET】  /{version}/{resources}/{resource_id}?count=[true|false]
 	```
+	
 - 其他个性化查询参数
 	```
 	【GET】  /v1/categorys/{category_id}/apps/{app_id}?enable=[1|0]&os_type={field}&device_ids={field,field,…}
 	```
+
+
+
 不要过度设计，只返回需要的数据，但同时还要尽量保证API的弹性，以方便未来软件扩展
 为了提高效率，可以考虑适当在数据库添加索引
 
@@ -146,14 +161,20 @@ Content-Type: application/json
 ## 请求参数
 - 对请求参数进行限制说明
 	- 例如批量查询，要限制最多可以一次查询多少人
-	```
+	
+	
+	
+	```json
 	【GET】     /v1/users/batch?user_ids=1001,1002      // 批量查询用户信息
 	参数说明
 	- user_ids: 用户ID串，最多允许 20 个。
 	```
 - 说明参数的格式
 	- 必填、选填、取值、长度等
-	```
+	
+	
+	
+	```json
 	【POST】     /v1/students                             // 创建新学生
 	请求内容
 	{
@@ -176,7 +197,10 @@ Content-Type: application/json
 | 【PUT】    | /{version}/{resources}/{resource_id} | 返回完整的资源对象                                           |
 | 【PATCH】  | /{version}/{resources}/{resource_id} | 返回完整的资源对象                                           |
 | 【DELETE】 | /{version}/{resources}/{resource_id} | 状态码 200，返回完整的资源对象。<br/>状态码 204，返回一个空文档。 |
+
+
 - 各种对象的返回方式
+	
 	- 一条数据：返回对象的信息
 	```json
 	HTTP/1.1 200 OK
@@ -203,7 +227,11 @@ Content-Type: application/json
 	    ]
 	}
 	```
+
+
+
 ## 完整案例
+
 使用“获取学生列表”的案例
 ```json
 【GET】     /v1/students?[&keyword=xxx][&enable=1][&offset=0][&limit=20] 获取学生列表
@@ -243,5 +271,13 @@ Content-Type: application/json
 - 403 UC/AUTH_DENIED    授权受限
 ```
 
+
+
 <hr/>
+
+
+
 本文API示例来源及参考：[《你怎么理解 RESTful》李为民](https://www.funtl.com/zh/apache-http-client/%E4%BD%A0%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3-RESTful.html#%E5%93%8D%E5%BA%94%E5%8F%82%E6%95%B0)
+
+
+

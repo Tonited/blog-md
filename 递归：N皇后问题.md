@@ -3,6 +3,7 @@ titile: 递归：N皇后问题
 author: Tonited
 date: 2020.02.09
 keywords: 递归：N皇后问题
+mathjax: true
 img: https://img-blog.csdnimg.cn/20200208161411737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MzY5NA==,size_16,color_FFFFFF,t_70
 categories: 数据结构与算法
 ---
@@ -14,7 +15,7 @@ categories: 数据结构与算法
 ![示意图](https://img-blog.csdnimg.cn/20200208161411737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MzY5NA==,size_16,color_FFFFFF,t_70)
 
 ## 解析
-如果采用组合数方式枚举法的话，从n^2^个位置找出n个位置，需要C^n^~nxn~的枚举量，n=8时就是54 502 232次枚举
+如果采用组合数方式枚举法的话，从 $n^2$ 个位置找出n个位置，需要 $C^n_{nxn}$的枚举量，n=8时就是54 502 232次枚举
 换个思路，由于每行每列都只放一个皇后，那么把每列标记一个列号`i`，每行标记一个行号`j`，在第`i`列中，皇后出现的行数关系为`line[i] = j`，于是只要[枚举](https://blog.csdn.net/weixin_43553694/article/details/104223331)1~n的所有排列，之后查看每个放置方案是否合法即可
 
 - 两个皇后是否处于同一对角线，只要判断两个皇后的`行号差`与`列号差`的绝对值是否相同就可以啦

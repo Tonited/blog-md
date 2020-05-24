@@ -1714,7 +1714,7 @@ public class MyAspectXml {
 
 ### 2. 本章示例的数据库表结构
 
-	![1566457053166](https://gitee.com//tonited/Spring-Notes/raw/master/assets/1566457053166.png)
+![1566457053166](https://gitee.com//tonited/Spring-Notes/raw/master/assets/1566457053166.png)
 
 ### 3. 项目Spring配置及Maven依赖
 

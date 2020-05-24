@@ -58,7 +58,7 @@ categories: 数据结构与算法
 
 		**如果两个int相加会超过范围，必须使用Long（C的longlong）**
 	
-3. **JAVA的int范围是-2^31——2^31-1，即-2147483648——2147483647，比C语言的int范围大的多**
+3. **JAVA的int范围是-${2}^{31}$——$2^{31}$-1，即-2147483648——2147483647，比C语言的int范围大的多**
 
 4. **字符串转数字，如果初始是空串，注意最后判断是空串，把空串转化为零**
 	```java
@@ -108,6 +108,7 @@ categories: 数据结构与算法
 		// st不变，他没有调用能修改自身的方法
 		st += "!";
 	}
+	```
 ```
 	
 11. **次方：Math.pow(double, double)**
@@ -138,8 +139,8 @@ categories: 数据结构与算法
 	    	return o1.intime.compareTo(o2.intime);
 	    }
 	}
-	```
-	
+```
+
 4. **JAVA有像C语言一样的输出`System.out.printf()`，可用于控制输出格式，用法与C语言的`printf`基本相同**
 	```java
 	System.out.printf("%02d, 2);
