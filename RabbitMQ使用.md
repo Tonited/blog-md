@@ -1,6 +1,6 @@
 ---
 titile: RabbitMQ使用
-author: funtl Tonited
+author: Lusifer
 date: 2020.04.27
 keywords: RabbitMQ使用
 img: https://gitee.com/tonited/qfdmy/raw/master/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B9%8B%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97-RabbitMQ/assert/1.%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E6%B5%81%E6%B4%BE/FnFPiDNP_o95g91Un5R17tqaUfT_@.webp

@@ -1,6 +1,6 @@
 ---
 titile: RabbitMQ部署
-author: funtl Tonited
+author: Lusifer
 date: 2020.04.27
 keywords: RabbitMQ部署
 img: https://gitee.com/tonited/qfdmy/raw/master/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B9%8B%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97-RabbitMQ/assert/4.RabbitMQ%E9%83%A8%E7%BD%B2/FsTit3gkO17GoekvBVz2uGsJPN6h@.webp

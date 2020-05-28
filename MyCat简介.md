@@ -1,6 +1,6 @@
 ---
 titile: MyCat简介
-author: funtl Tonited
+author: Lusifer
 date: 2020.04.27
 keywords: MyCat简介
 img: https://gitee.com/tonited/qfdmy/raw/master/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B9%8B%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8-MyCat/assert/2.MyCat%E5%8E%9F%E7%90%86/FiICfHIK96Ao6C9exSiGl9pfAz0g@.webp
