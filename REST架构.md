@@ -4,7 +4,7 @@ author: Tonited
 date: 2020.03.19
 keywords: REST架构
 img: https://www.runoob.com/wp-content/uploads/2015/07/restful.gif
-categories: 设计模式与编程思想
+categories: 软件工程
 tags: 编程思想
 ---
 
@@ -274,7 +274,6 @@ Content-Type: application/json
 
 
 <hr/>
-
 
 
 本文API示例来源及参考：[《你怎么理解 RESTful》李为民](https://www.funtl.com/zh/apache-http-client/%E4%BD%A0%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3-RESTful.html#%E5%93%8D%E5%BA%94%E5%8F%82%E6%95%B0)

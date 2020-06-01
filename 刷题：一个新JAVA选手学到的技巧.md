@@ -32,9 +32,11 @@ categories: 数据结构与算法
   import java.io.BufferedReader;
   import java.io.InputStreamReader;
   import java.io.IOException;
+  
   BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
   ```
-
+```
+  
   - 因为PAT系统对scanner支持不友好且运行时间长。
   
  - PAT是单点测试，就是每个测试点只有一组输入
@@ -73,8 +75,8 @@ categories: 数据结构与算法
 	// 记得处理空串
 	if(i.equals("")) i = 0;
 	res = Long.parseLong(i) + 10;
-	```
-	
+```
+
 5. 任何进制字符串 转 int
 	```java
 	int i = Integer.parseInt("E8", 16); //十六字符串转int，16代表前的的是十六进制数值
@@ -221,7 +223,7 @@ categories: 数据结构与算法
 	}
 	```
 
-
+   
 
 ## 三、经验技巧
 
@@ -234,106 +236,106 @@ categories: 数据结构与算法
 	    String.format("%02d",maxWaitTime%100) // 秒
 	);
 	```
-```
 	
 2. `compareTo`比较时间字符串（hh:MM:ss）
-	```java
-	Employee[] emp = new Employee[100];
-	Arrays.sort(emp);
-	class Employee implements Comparable{
-	    String name;
-	    String intime;
-	    @Override
-		public int compareTo(Object o) {
-	        Employee otherEmplyee = (Employee)o;
-	        // -1：this属性小于other属性
-	        // 0：等于
-	        // 1：大于
-	        return o1.intime.compareTo(o2.intime);
-	    }
-	}
-```
+
+  ```java
+  Employee[] emp = new Employee[100];
+  Arrays.sort(emp);
+  class Employee implements Comparable{
+      String name;
+      String intime;
+      @Override
+  	public int compareTo(Object o) {
+          Employee otherEmplyee = (Employee)o;
+          // -1：this属性小于other属性
+          // 0：等于
+          // 1：大于
+          return o1.intime.compareTo(o2.intime);
+      }
+  }
+  ```
 
 3. “1 10 10 1”是回文， “110101”不是回文
 
 4. 进位公式
-	```java
-	// carry为进位 mod为进制
-	// 加法公式
-	c[i] = (a[i] + b[i] + carry) % mod;
-	// 进位公式
-	carry = (a[i] + b[i] + carry) / mod;
-	```
-	
+  ```java
+  // carry为进位 mod为进制
+  // 加法公式
+  c[i] = (a[i] + b[i] + carry) % mod;
+  // 进位公式
+  carry = (a[i] + b[i] + carry) / mod;
+  ```
+
 5. 如果记不住字符`'0'`的ASCII、想要数字字符的ASCII，可以`'0'+数字`
 
 6. 将两个大数的每一位装进两个int数组，通过数组对两个数进行运算时要将两长度统一，短的那个数组加长，加长这部分为0
-	不同长度A，B进行运算，补零有以下好处
-	- 如果需要reverse可以同时reverse，思路清晰
-	- 当一个短一个长时，不会忘记输出长的剩下的那部分
+  不同长度A，B进行运算，补零有以下好处
+  - 如果需要reverse可以同时reverse，思路清晰
+  - 当一个短一个长时，不会忘记输出长的剩下的那部分
 
 7. 大数格式化（三个数一个逗号：100,000,000）
-	```java
-	if(sum >= 1000000)
-	    System.out.printf("%d,%03d,%03d", sum/1000000, sum%1000000/1000; sum % 1000);
-	else if(sum >= 1000)
-	    System.out.printf("%d,%03d", sum/1000, sum%1000);
-	else System.out.printf("%d",sum);
-	```
-	
+  ```java
+  if(sum >= 1000000)
+      System.out.printf("%d,%03d,%03d", sum/1000000, sum%1000000/1000; sum % 1000);
+  else if(sum >= 1000)
+      System.out.printf("%d,%03d", sum/1000, sum%1000);
+  else System.out.printf("%d",sum);
+  ```
+
 8. 分数按大小排序后排名，同分同位
-	- 同分同位：即下一个分数不连续：如五人排名 { 1 2 2 4 5 }
-	- 如果当前分数不等于上一分数，排名=数组下标+1，否则排名与上一人相同，一般将排名放在排名者的类中
-	
+  - 同分同位：即下一个分数不连续：如五人排名 { 1 2 2 4 5 }
+  - 如果当前分数不等于上一分数，排名=数组下标+1，否则排名与上一人相同，一般将排名放在排名者的类中
+
 9. 按照分数大小排序，分数相同按照姓名字典序排序
-	 ```java
-	 public int compareTo(Object o) {
-	    Student othStu = (Student)o;
-	    if(this.grade < othStu.grade)
-	        return -1;
-	    else if(this.grade > othStu.grade)
-	        return 1;
-	    else 
-	        return this.name.compareTo(othStu.name);
-		}
-	```
-	
+    ```java
+     public int compareTo(Object o) {
+        Student othStu = (Student)o;
+        if(this.grade < othStu.grade)
+            return -1;
+        else if(this.grade > othStu.grade)
+            return 1;
+        else 
+            return this.name.compareTo(othStu.name);
+    	}
+    ```
+
 10. 升序：12345  ABCD……abcde……
 
 11. 降序排序
-	- Arrays.sort（数组；Collections.reverseOrder（））; 
-	- 实现`Comparator`接口比较器实现降序：返回`o1属性-o2的属性`的值
-		```java
-		public int compare(Student o1, Student o2) {
-			return o1.grade - o2.grade;
-		};
-		```
-	
+     - Arrays.sort（数组；Collections.reverseOrder（））; 
+     - 实现`Comparator`接口比较器实现降序：返回`o1属性-o2的属性`的值
+     	```java
+     	public int compare(Student o1, Student o2) {
+     		return o1.grade - o2.grade;
+     	};
+     	```
+
 12. 二分法：也可以对 有序的 时间字符串数组 使用二分法
-	
-	```java
-	//二分查找算法 
-	//特点:查找速度快。要求:数列必须有序
-	public static int binarySearch(int[] nums,int key){
-	    int start=0;
-	    int end=nums.length-1;
-	    int mid=-1;
-	    while(start<=end){
-	        mid=(start+end)/2;
-	        if(nums[mid]==key){
-	            return mid;
-	        }else if(nums[mid]<key){
-	            start=mid+1;
-	        }else if(nums[mid]>key){
-	            end=mid-1;
-	        }
-	    }
-	    return -1;
-	}
-	```
-	
+
+     ```java
+     //二分查找算法 
+     //特点:查找速度快。要求:数列必须有序
+     public static int binarySearch(int[] nums,int key){
+         int start=0;
+         int end=nums.length-1;
+         int mid=-1;
+         while(start<=end){
+             mid=(start+end)/2;
+             if(nums[mid]==key){
+                 return mid;
+             }else if(nums[mid]<key){
+                 start=mid+1;
+             }else if(nums[mid]>key){
+                 end=mid-1;
+             }
+         }
+         return -1;
+     }
+     ```
+
 13. 计算时间间隔：时间一 不断自增一秒（分|时|天……） 到时间二
-	
+
 - 这一方法的优点在于，时间自增过程中可以加入其他运算
 	
 	- 例如：计算从时间一开始打电话到时间二 的电话费用，由于每个小时的费用标准都不一样，所以可以每自增一分钟就就这一分钟的费用，加到总时间里（PAT甲级 1016 Phone Bills (25分)）
